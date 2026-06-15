@@ -134,7 +134,8 @@ A continuación, se presentan los escenarios de prueba ejecutados para validar l
 
 
 * **Representación Gráfica de la Red:**
-![grafo 5 nodos](img/grafo_5nodos.png)
+
+![grafo 5 nodos](img/grafo_5nodos_diagrama.png)
 
 * **Entrada (`grafo_5nodos.txt`):**
 ```text
@@ -148,8 +149,11 @@ A continuación, se presentan los escenarios de prueba ejecutados para validar l
 ```
 
 * **Salida con Dijkstra:**
+![prueba_1_dis](img/prueba1-dis.png)
 
 * **Salida con Floyd:**
+![prueba_1](img/prueba1_floy.png)
+
 --------------------------------------------------------------------------
 
 ### Prueba 2: 8 nodos
@@ -157,6 +161,7 @@ A continuación, se presentan los escenarios de prueba ejecutados para validar l
 * **Objetivo:** Evaluar el comportamiento de los motores algorítmicos ante un escenario complejo con múltiples rutas cruzadas diseñadas para forzar la actualización repetida de predecesores.
 
 * **Representación Gráfica de la Red:**
+
 ![grafo 8 nodos](img/grafo_8nodos.png)
 
 * **Entrada proporcionada (`grafo_complejo.txt`):**
@@ -177,7 +182,108 @@ A continuación, se presentan los escenarios de prueba ejecutados para validar l
 5,6,4
 6,7,3
 ```
+* **Salida con Dijkstra:**
+![prueba_2_dis](img/prueba2_dis.png)
 
+* **Salida con Floyd:**
+![prueba_2_floy](img/prueba2_floy.png)
+
+----------------------------------------------------------------------
+
+### Prueba 3: 10 nodos
+
+* **Objetivo:** Validar la escalabilidad y consistencia de ambos algoritmos al operar sobre una red extensa de 10 nodos con ramificaciones alternas de alto y bajo costo.
+
+* **Representación Gráfica de la Red:**
+![grafo 10 nodos](img/grafo_10nodos.png)
+
+
+* **Entrada proporcionada (`grafo_10nodos.txt`):**
+```text
+10
+0,1,5
+0,2,3
+1,3,6
+1,4,2
+2,1,1
+2,4,7
+2,5,8
+3,6,4
+4,3,1
+4,6,6
+4,7,4
+5,7,2
+5,8,8
+6,9,7
+7,6,1
+7,8,3
+7,9,6
+8,9,2
+```
+* **Salida con Dijkstra:**
+![prueba_3_dis](img/prueba3_dis.png)
+
+* **Salida con Floyd:**
+![prueba_3_floy](img/prueba3_floy.png)
+
+-------------------------------------------------------------------
+
+### Prueba 4: Grafo vacio (Sin Conexiones)
+
+* **Objetivo:** Verificar la estabilidad del sistema al procesar un archivo estructurado que define la existencia de nodos pero carece en su totalidad de aristas (conexiones), garantizando que los motores algorítmicos dictaminen la inalcanzabilidad de forma inmediata sin generar excepciones de puntero nulo (*NullPointerException*) o bucles infinitos.
+
+* **Representación Gráfica de la Red:**
+![Grafo Sin Conexiones](img/grafo_disconexo.drawio.png)
+
+* **Entrada proporcionada (`grafo_4nodos_vacio.txt`):**
+```text
+4
+```
+
+(Nota: El archivo solo contiene el número 4 en la primera línea, especificando que existen 4 nodos [0, 1, 2, 3], pero no se declara ninguna línea subsecuente de conexiones).
+
+
+* **Comportamiento del Código:** El LectorGrafo procesa la primera línea, instancia el objeto Grafo(4) e inicializa la matriz de adyacencia de 4×4. Al no encontrar más líneas, todas las celdas fuera de la diagonal principal conservan de forma nativa el peso de INFINITO (99999999). Al solicitar una ruta de 0 a 3, tanto Dijkstra como Floyd-Warshall inspeccionan la matriz, evalúan el costo inicial y abortan el cálculo al detectar el valor infinito de control.
+
+* **Evidencia de Ejecución / Salida Esperada con Dijkstra:**
+
+![prueba_4_dis](img/prueba4_dis.png)
+
+* **Evidencia de Ejecución / Salida Esperada con Floyd:**
+
+![prueba_4_floy](img/prueba4_floy.png)
+
+----------------------------------------------------------------------
+
+### Prueba 5: Validación de Archivos Corruptos
+
+* **Objetivo:** Demostrar estabilidad de la aplicación (específicamente de las capas `services` y `ui`) al enfrentarse a entradas de datos malformadas, tales como la inclusión de caracteres alfabéticos, símbolos o líneas incompletas, tanto dentro de los archivos de texto como en la interacción por consola, garantizando que el programa intercepte el error de forma controlada sin colapsar.
+
+* **Entrada proporcionada en Archivo Corrupto (`grafo_corrupto.txt`):**
+
+```text
+5
+0,1,10
+0,dos,30
+1,2
+3,4,15
+```
+(Nota: La línea 3 contiene una cadena de texto ["dos"] en lugar de un entero numérico, y la línea 4 carece del dato del peso de la arista, teniendo solo dos parámetros en lugar de tres).
+
+* **Comportamiento del Código:** 1. Robustez del consumo de archivos: La clase LectorGrafo procesa la línea estructuralmente correcta 0,1,10. Al llegar a la línea 3, el método Integer.parseInt() detecta la cadena de texto y dispara de forma nativa un NumberFormatException. El bloque catch del servicio captura la excepción, imprime una advertencia con el número de línea exacto y continúa con la lectura sin detener el programa. Al evaluar la línea 4, el condicional de validación estructural if (partes.length == 3) detecta que la línea está incompleta, imprimiendo una alerta y descartándola de la memoria de forma segura.
+Robustez en la Interacción del Menú: Si tras cargar un grafo el usuario solicita calcular una trayectoria e introduce caracteres alfabéticos por teclado en lugar de números de nodo (ej. Origen: 0, Destino: X), el bloque try-catch implementado en el método ejecutarAlgoritmo de MenuConsola.java intercepta el fallo de casteo, despliega un mensaje amigable de error y limpia los buffers para retornar al usuario al menú raíz de forma segura.
+
+* **Evidencia de Ejecución / Salida Esperada en Terminal:**
+
+![prueba_5](img/prueba5.png)
+
+**con el ingreso de caracteres inesperados:**
+
+![prueba_5](img/prueba2_1.png)
+
+**consultar una ruta con un origen y un destino inexistente:**
+
+![prueba_5](img/prueba5_2.png)
 
 
 --------------------------------------------------------------------
