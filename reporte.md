@@ -195,6 +195,7 @@ A continuación, se presentan los escenarios de prueba ejecutados para validar l
 * **Objetivo:** Validar la escalabilidad y consistencia de ambos algoritmos al operar sobre una red extensa de 10 nodos con ramificaciones alternas de alto y bajo costo.
 
 * **Representación Gráfica de la Red:**
+
 ![grafo 10 nodos](img/grafo_10nodos.png)
 
 
@@ -221,9 +222,11 @@ A continuación, se presentan los escenarios de prueba ejecutados para validar l
 8,9,2
 ```
 * **Salida con Dijkstra:**
+
 ![prueba_3_dis](img/prueba3_dis.png)
 
 * **Salida con Floyd:**
+
 ![prueba_3_floy](img/prueba3_floy.png)
 
 -------------------------------------------------------------------
@@ -233,6 +236,7 @@ A continuación, se presentan los escenarios de prueba ejecutados para validar l
 * **Objetivo:** Verificar la estabilidad del sistema al procesar un archivo estructurado que define la existencia de nodos pero carece en su totalidad de aristas (conexiones), garantizando que los motores algorítmicos dictaminen la inalcanzabilidad de forma inmediata sin generar excepciones de puntero nulo (*NullPointerException*) o bucles infinitos.
 
 * **Representación Gráfica de la Red:**
+
 ![Grafo Sin Conexiones](img/grafo_disconexo.drawio.png)
 
 * **Entrada proporcionada (`grafo_4nodos_vacio.txt`):**
@@ -248,6 +252,7 @@ A continuación, se presentan los escenarios de prueba ejecutados para validar l
 * **Evidencia de Ejecución / Salida Esperada con Dijkstra:**
 
 ![prueba_4_dis](img/prueba4_dis.png)
+
 
 * **Evidencia de Ejecución / Salida Esperada con Floyd:**
 
