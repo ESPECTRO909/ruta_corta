@@ -1,6 +1,6 @@
 # Motor Algorítmico de Rutas Más Cortas (Dijkstra y FloydWarshall)
 
-Aplicación de consola desarrollada en Java que resuelve el problema del camino más corto en la teoría de grafos. El sistema permite evaluar redes de nodos utilizando los algoritmos de Dijkstra y Floyd-Warshall, calculando tanto el costo mínimo acumulado como la secuencia exacta de la trayectoria. 
+Aplicación de consola desarrollada en Java que resuelve el problema del camino más corto en la teoría de grafos. El sistema permite evaluar redes de nodos utilizando los algoritmos de Dijkstra y Floyd Warshall, calculando tanto el costo mínimo acumulado como la secuencia exacta de la trayectoria. 
 
 ## Características
 * **Carga de Grafos:** Capacidad para procesar topologías de red desde archivos `.txt` o `.csv`, interpretando el origen, destino y peso de las aristas.
