@@ -29,8 +29,6 @@ public class Grafo {
     public void agregarArista(int origen, int destino, int peso) {
         matrizAdyacencia[origen][destino] = peso;
         
-        // Nota: Si tu proyecto evalúa grafos NO dirigidos (doble sentido), 
-        // debes descomentar la siguiente línea:
         // matrizAdyacencia[destino][origen] = peso;
     }
 

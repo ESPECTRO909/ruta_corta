@@ -8,3 +8,4 @@ public class Main {
         menu.iniciar();
     }
 }
+//clase principal que inicia la aplicación, creando una instancia de MenuConsola y llamando a su método iniciar() para comenzar la interacción con el usuario.

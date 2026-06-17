@@ -17,7 +17,7 @@ public class Trayectoria {
         this.costoTotal = 0; // Inicializamos en 0
     }
 
-    // --- Getters y Setters ---
+    // Getters y Setters 
 
     public void setCostoTotal(int costoTotal) {
         this.costoTotal = costoTotal;

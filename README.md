@@ -13,6 +13,7 @@ Aplicación de consola desarrollada en Java que resuelve el problema del camino 
 ## Requisitos Previos
 Para compilar y ejecutar este proyecto, necesitas tener instalado el Java Development Kit (JDK) 21 (o superior). 
 Puedes verificar si lo tienes instalado ejecutando en tu terminal:
+
 ```bash
 java -version
 javac -version
@@ -21,7 +22,7 @@ javac -version
 ## Instalacion y Descarga
 * **Abre tu terminal y clona este repositorio en tu máquina local usando Git:**
 ```bash
-git clone
+git clone https://github.com/ESPECTRO909/ruta_corta
 ```
 * **Navega hacia la carpeta del proyecto descargado:**
 ```bash

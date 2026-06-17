@@ -54,7 +54,7 @@ public class DijkstraService {
         return construirTrayectoria(destino, distancias, predecesores);
     }
 
-    // --- Métodos Auxiliares Privados ---
+    //Métodos Auxiliares
 
     private int obtenerNodoDistanciaMinima(int[] distancias, boolean[] visitados, int n) {
         int min = Grafo.INFINITO;

@@ -237,7 +237,7 @@ A continuación, se presentan los escenarios de prueba ejecutados para validar l
 
 * **Representación Gráfica de la Red:**
 
-![Grafo Sin Conexiones](img/grafo_disconexo.drawio.png)
+![Grafo Sin Conexiones](img/grafo_4nodos_vacio.png)
 
 * **Entrada proporcionada (`grafo_4nodos_vacio.txt`):**
 ```text
