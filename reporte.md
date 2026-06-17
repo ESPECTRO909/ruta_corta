@@ -317,6 +317,7 @@ El proyecto se estructuró bajo un patrón modular por capas desacoplado, organi
 ---------------------------------------------------------------
 ## 8. Conclusiones
 
+Con este proyecto me demostre que la teoría se puede aplicar en la programación para resolver problemas del mundo real, como encontrar la ruta más rápida y económica en un mapa, asi como encontar las rutas con menor latencia en una red de maquina. Además de  organizar el código de forma ordenada y por secciones separadas me permitió crear un programa limpio, fácil de entender, facil de mantener y  resistente a errores cuando se introducen datos equivocados.
 ---------------------------------------------------------------
 ## 9. Fuentes
 
